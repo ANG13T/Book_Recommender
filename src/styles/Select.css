@@ -1,0 +1,29 @@
+.option{
+    width: 15vw;
+    height: 25vh;
+    position: relative;
+    text-align: center;
+}
+
+.select{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 85%;
+    margin: auto;
+}
+
+.check{
+    position: absolute !important;
+    top: 0px !important;
+    right: 0px !important;
+}
+
+.icon{
+  font-size: 5rem !important;
+  margin-top: 1rem;
+}
+
+.logoName{
+    
+}

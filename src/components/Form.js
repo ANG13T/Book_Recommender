@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Searchbar from './layouts/Searchbar';
+import Select from './layouts/Select';
 
 class Form extends React.Component {   
     constructor(props) {
@@ -19,6 +20,7 @@ class Form extends React.Component {
             <h1>FORM</h1>
             <Searchbar passSearchData={this.searchBarInput}/>
             <h1>{this.state.searchInput}</h1>
+            <Select />
         </div>
         );
     }
