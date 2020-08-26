@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
 import Books from './components/layouts/Books.js';
-import Searchbar from './components/layouts/Searchbar.js';
+import Form from './components/Form.js';
 
 
 class App extends React.Component{
@@ -14,17 +14,15 @@ class App extends React.Component{
           {name: "Pay Bills", id:4},
           {name: "Go to Gym", id:5}
       ],
-      searchInput: ""
+
   }
 
-  searchBarInput = (searchText) => {
-    this.state.searchInput = searchText;
-  }
 
   render(){
       return(
           <div className="App">
               <h1 id="title">Todo List</h1>
+              <Form />
               <Books books={this.state.books} />
               <Button variant="contained" color="primary">
               Hello World
