@@ -1,15 +1,22 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 
-class Book extends React.Component {        
-    render(){
-        return (
-            <div className="book">
-                <h1>{this.props.bookData.name}</h1> 
-            </div>
+const Book = ({bookData}) => {   
+    let [image, setImage] = useState('');
+
+    function onCall(){
+        if(bookData.volumeInfo.imageLinks){
+            setImage(bookData.volumeInfo.imageLinks.thumbnail);
+        }
         
-    );
     }
-   
+   return(
+      <div className="book">
+          <button onClick={onCall}>YOLO</button>
+          <img src={image} />
+      </div>
+   )
 }
+
+
 
 export default Book;
