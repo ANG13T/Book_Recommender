@@ -1,45 +1,48 @@
-import React, {Component} from 'react';
+import React, { useState } from 'react';
 import Searchbar from './layouts/Searchbar';
 import Select from './layouts/Select';
 import Button from '@material-ui/core/Button';
+import { useHistory } from "react-router-dom";
+
 
 import '../styles/Form.css';
 
-class Form extends React.Component {   
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchInput: "",
-            selectedOptions: []
-        };    
+
+
+const Form = () => {   
+
+    const [searchInput, setSearchInput] = useState('');
+    const [selectedOptions, setSelectedOptions] = useState([]);
+
+    let history = useHistory();
+
+    const searchBarInput = (searchText) => {
+        setSearchInput(searchText)
     }
 
-    searchBarInput = (searchText) => {
-        this.setState({searchInput: searchText});
+    const selectInput = (selectedOpts) => {
+        setSelectedOptions(selectedOpts)
     }
 
-    selectInput = (selectedOpts) => {
-        // this.setState({selectedOptions: selectedOpts});
-        this.setState({selectedOptions: selectedOpts}, () => {
-            console.log(this.state.selectedOptions);
-        });
+    const loadBooks = () => {
+        if(searchInput != "" || selectedOptions != []){
+            history.push("/books");
+        }else{
+            alert("Please select or type something.")
+        }
     }
 
-    render(){
         return (
         <div className="form">
             <h1>BOOKSY</h1>
-            <Searchbar passSearchData={this.searchBarInput}/>
-            <h1>{this.state.searchInput}</h1>
-            <Select passSelectData={this.selectInput}/>
-            <Button variant="contained" color="primary">
+            <Searchbar passSearchData={searchBarInput}/>
+            <h1>{searchInput}</h1>
+            <Select passSelectData={selectInput}/>
+            <Button variant="contained" color="primary" onClick={loadBooks}>
             Search
             </Button>
         </div>
         );
-    }
-
-   
    
 }
 

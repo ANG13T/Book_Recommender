@@ -2,7 +2,6 @@ import React from 'react';
 
 import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
 import Home from './components/Home.js';
-import Books from './components/layouts/Books.js';
 
 
 class App extends React.Component{
@@ -31,7 +30,8 @@ class App extends React.Component{
             </Route>
 
             <Route path="/books">
-              <Home />
+              {/* <Home /> */}
+              <h1>BOOKS</h1>
             </Route>
         </Switch>
         </div>
