@@ -22,10 +22,13 @@ const Form = () => {
 
     const selectInput = (selectedOpts) => {
         setSelectedOptions(selectedOpts)
+        console.log(selectedOptions.length)
     }
 
     const loadBooks = () => {
-        if(searchInput != "" || selectedOptions != []){
+        console.log(searchInput.length);
+        console.log(selectedOptions.length);
+        if(searchInput.length != 0 || selectedOptions.length != 0){
             history.replace("/books");
         }else{
             alert("Please select or type something.")
@@ -38,12 +41,14 @@ const Form = () => {
             <Searchbar passSearchData={searchBarInput}/>
             <h1>{searchInput}</h1>
             <Select passSelectData={selectInput}/>
-            <Button variant="contained" color="primary" onClick={loadBooks}>
+            <Button variant="contained" color="primary" onClick={loadBooks} disabled={searchInput.length == 0 && selectedOptions.length == 0}>
             Search
             </Button>
         </div>
         );
    
 }
+
+
 
 export default Form;
