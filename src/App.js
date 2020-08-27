@@ -1,7 +1,8 @@
 import React from 'react';
 
+import { BrowserRouter as Router, Route,Switch } from 'react-router-dom';
+import Home from './components/Home.js';
 import Books from './components/layouts/Books.js';
-import Form from './components/Form.js';
 
 
 class App extends React.Component{
@@ -20,10 +21,21 @@ class App extends React.Component{
 
   render(){
       return(
+        <Router>
           <div className="App">
-              <Form />
               {/* <Books books={this.state.books} /> */}
-          </div>
+
+          <Switch>
+            <Route path="/">
+              <Home />
+            </Route>
+
+            <Route path="/books">
+              <Home />
+            </Route>
+        </Switch>
+        </div>
+        </Router>
 
       )
   }
