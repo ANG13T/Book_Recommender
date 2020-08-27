@@ -31,7 +31,7 @@ class App extends React.Component{
             </Route>
 
             <Route path="/books">
-              <Books books={this.state.books}/>
+              <Books />
             </Route>
         </Switch>
         </div>

@@ -5,6 +5,7 @@ import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
 
 
+
 import '../styles/Form.css';
 
 
@@ -26,8 +27,16 @@ const Form = () => {
     }
 
     const loadBooks = () => {
+        let newLink = "/books?categories=";
+            
+        for(let option of selectedOptions){
+            selectedOptions.indexOf(option) != selectedOptions.length - 1 ? newLink += (option + ",") : newLink += option;
+        }
+
         if(selectedOptions.length != 0){
-            history.replace("/books");
+            
+            console.log(newLink)
+            history.replace(newLink);
         }else{
             alert("Please select or type something.")
         }
