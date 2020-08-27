@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import Book from '../cards/Book.js';
 // import './Todos.css'
 const Books = ({books}) => {
-
-    
     const bookList = books.map(book => {
 
         return(
@@ -14,6 +12,7 @@ const Books = ({books}) => {
 
         return(
             <div className="books">
+                <h1>BOOKS</h1>
                 {bookList}
             </div>
         )

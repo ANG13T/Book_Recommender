@@ -26,7 +26,7 @@ const Form = () => {
 
     const loadBooks = () => {
         if(searchInput != "" || selectedOptions != []){
-            history.push("/books");
+            history.replace("/books");
         }else{
             alert("Please select or type something.")
         }
