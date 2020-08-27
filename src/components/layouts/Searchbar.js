@@ -8,13 +8,14 @@ class Searchbar extends React.Component {
     }
 
     handleChange(event) {
-        this.setState({bookName: event.target.value})
-        this.props.passSearchData(this.state.bookName);
+        var value = event.target.value;
+        this.setState({bookName: value})
+        this.props.passSearchData(value);
     }
 
     render(){
         return (
-             <TextField id="standard-search" label="Search books" type="search" value={this.state.bookName} onChange={this.handleChange.bind(this)}/>
+             <TextField id="standard-search" label="Search books" type="search" onChange={this.handleChange.bind(this)}/>
         );
     }
    

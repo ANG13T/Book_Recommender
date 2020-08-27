@@ -11,14 +11,14 @@ import '../styles/Form.css';
 
 const Form = () => {   
 
-    const [searchInput, setSearchInput] = useState('');
+    // const [searchInput, setSearchInput] = useState('');
     const [selectedOptions, setSelectedOptions] = useState([]);
 
     let history = useHistory();
 
-    const searchBarInput = (searchText) => {
-        setSearchInput(searchText)
-    }
+    // const searchBarInput = (searchText) => {
+    //     setSearchInput(searchText)
+    // }
 
     const selectInput = (selectedOpts) => {
         setSelectedOptions(selectedOpts)
@@ -26,9 +26,7 @@ const Form = () => {
     }
 
     const loadBooks = () => {
-        console.log(searchInput.length);
-        console.log(selectedOptions.length);
-        if(searchInput.length != 0 || selectedOptions.length != 0){
+        if(selectedOptions.length != 0){
             history.replace("/books");
         }else{
             alert("Please select or type something.")
@@ -38,10 +36,10 @@ const Form = () => {
         return (
         <div className="form">
             <h1>BOOKSY</h1>
-            <Searchbar passSearchData={searchBarInput}/>
-            <h1>{searchInput}</h1>
+            {/* <Searchbar passSearchData={searchBarInput}/> */}
+            {/* <h1>{searchInput}</h1> */}
             <Select passSelectData={selectInput}/>
-            <Button variant="contained" color="primary" onClick={loadBooks} disabled={searchInput.length == 0 && selectedOptions.length == 0}>
+            <Button variant="contained" color="primary" onClick={loadBooks} disabled={selectedOptions.length == 0}>
             Search
             </Button>
         </div>
