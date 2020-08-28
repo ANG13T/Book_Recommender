@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import Book from '../cards/Book';
+import Searchbar from './Searchbar';
+
+import '../../styles/Books.css';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
 
@@ -38,11 +41,16 @@ class Books extends React.Component {
 
     render(){
         return (
-            <div className="booksDisplay">
-            {this.state.books.map((book, index) => (
-                <Book key={index} bookData={book}  /> 
-            ))}
+            <div className="mainBooks">
+                 <h1>BOOKSY</h1>
+                <Searchbar className="search"/>
+                <div className="booksDisplay">
+                {this.state.books.map((book, index) => (
+                    <Book key={index} bookData={book}  /> 
+                ))}
+                </div>
             </div>
+            
         );
     }
    
