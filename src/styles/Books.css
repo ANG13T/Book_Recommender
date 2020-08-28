@@ -13,3 +13,7 @@
 .mainBooks{
     text-align: center;
 }
+
+h1{
+    cursor: pointer;
+}

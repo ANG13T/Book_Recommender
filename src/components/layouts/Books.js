@@ -16,13 +16,18 @@ class Books extends React.Component {
     }
 
     setBooks = (items) => {
-        let newBooks = [];
+        let newBooks = this.state.books;
         for(let item of items){
             if(item.volumeInfo.imageLinks){
                 newBooks.push(item);
             }
         }
         this.setState({books: newBooks, loading: false, renderBooks: newBooks})
+        console.log("done", this.state.renderBooks);
+    }
+
+    reroute = () => {
+       window.location.href = "http://localhost:3000/";
     }
 
     setSpecificBooks = (name) => {
@@ -43,20 +48,26 @@ class Books extends React.Component {
         console.log(API_KEY);
         let params = window.location.search.split("?categories=")[1];
         let categories = params.split(",");
-        axios.get(`https://www.googleapis.com/books/v1/volumes?q=flowers+inauthor:keyes&key=${API_KEY}`)
-        .then((response) => {
-            console.log(response.data);
-            this.setBooks(response.data.items);
-        })
-        .catch(function (error) {
-            console.log(error);
-        })
+        let newBooks = [];
+        for(let category of categories){
+            axios.get(`https://www.googleapis.com/books/v1/volumes?q=${category}+inauthor:keyes&key=${API_KEY}`)
+            .then((response) => {
+                for(let newItem of response.data.items){
+                    newBooks.push(newItem);
+                }
+                this.setBooks(newBooks);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        }
+       
     }
 
     render(){
         return (
             <div className="mainBooks">
-                 <h1>BOOKSY</h1>
+                 <h1 onClick={this.reroute}>BOOKSY</h1>
                 <Searchbar className="search" passSearchData={this.setSpecificBooks}/>
                 <div className="booksDisplay">
                 {this.state.renderBooks.map((book, index) => (
