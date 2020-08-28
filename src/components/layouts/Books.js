@@ -53,7 +53,13 @@ class Books extends React.Component {
             axios.get(`https://www.googleapis.com/books/v1/volumes?q=${category}+inauthor:keyes&key=${API_KEY}`)
             .then((response) => {
                 for(let newItem of response.data.items){
-                    newBooks.push(newItem);
+                    if(this.state.books.includes(newItem) == false){
+                        newBooks.push(newItem);
+                    }
+                    
+                   if(response.data.items.indexOf(newItem) == response.data.items.length - 1){
+                    this.setState({loading: false});
+                   }
                 }
                 this.setBooks(newBooks);
             })
@@ -70,6 +76,7 @@ class Books extends React.Component {
                  <h1 onClick={this.reroute}>BOOKSY</h1>
                 <Searchbar className="search" passSearchData={this.setSpecificBooks}/>
                 <div className="booksDisplay">
+                <div className="loader" hidden={this.state.loading == false}></div>
                 {this.state.renderBooks.map((book, index) => (
                     <Book key={index} bookData={book}  /> 
                 ))}
