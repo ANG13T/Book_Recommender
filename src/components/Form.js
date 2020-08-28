@@ -17,10 +17,6 @@ const Form = () => {
 
     let history = useHistory();
 
-    // const searchBarInput = (searchText) => {
-    //     setSearchInput(searchText)
-    // }
-
     const selectInput = (selectedOpts) => {
         setSelectedOptions(selectedOpts)
         console.log(selectedOptions.length)

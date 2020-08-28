@@ -11,7 +11,8 @@ const API_KEY = process.env.REACT_APP_GOOGLE_BOOKS_API_KEY;
 class Books extends React.Component {    
     state = {
         loading: true,
-        books: []
+        books: [],
+        renderBooks: []
     }
 
     setBooks = (items) => {
@@ -21,7 +22,20 @@ class Books extends React.Component {
                 newBooks.push(item);
             }
         }
-        this.setState({books: newBooks, loading: false})
+        this.setState({books: newBooks, loading: false, renderBooks: newBooks})
+    }
+
+    setSpecificBooks = (name) => {
+        let newSet = [];
+        for(let book of this.state.books){
+            let bookTitle = book.volumeInfo.title.toString();
+            bookTitle = bookTitle.toLowerCase().trim();
+            name = name.toString().toLowerCase().trim();
+            if(bookTitle.includes(name)){
+                newSet.push(book)
+            }
+        }
+        this.setState({renderBooks: newSet})
     }
 
     componentDidMount() {
@@ -43,9 +57,9 @@ class Books extends React.Component {
         return (
             <div className="mainBooks">
                  <h1>BOOKSY</h1>
-                <Searchbar className="search"/>
+                <Searchbar className="search" passSearchData={this.setSpecificBooks}/>
                 <div className="booksDisplay">
-                {this.state.books.map((book, index) => (
+                {this.state.renderBooks.map((book, index) => (
                     <Book key={index} bookData={book}  /> 
                 ))}
                 </div>
