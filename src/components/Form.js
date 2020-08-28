@@ -3,6 +3,7 @@ import Searchbar from './layouts/Searchbar';
 import Select from './layouts/Select';
 import Button from '@material-ui/core/Button';
 import { useHistory } from "react-router-dom";
+import BookCatSearch from './layouts/BookCatSearch';
 
 
 
@@ -12,7 +13,7 @@ import '../styles/Form.css';
 
 const Form = () => {   
 
-    // const [searchInput, setSearchInput] = useState('');
+    const [searchInput, setSearchInput] = useState('');
     const [selectedOptions, setSelectedOptions] = useState([]);
 
     let history = useHistory();
@@ -22,6 +23,10 @@ const Form = () => {
         console.log(selectedOptions.length)
     }
 
+    const searchBarInput = (value) => {
+        setSearchInput(value.toString().toLowerCase().trim());
+    }
+
     const loadBooks = () => {
         let newLink = "/books?categories=";
             
@@ -29,9 +34,9 @@ const Form = () => {
             selectedOptions.indexOf(option) != selectedOptions.length - 1 ? newLink += (option + ",") : newLink += option;
         }
 
+       selectedOptions.length > 0 ? newLink += `,${searchInput}` : newLink += searchInput;
+
         if(selectedOptions.length != 0){
-            
-            console.log(newLink)
             history.replace(newLink);
         }else{
             alert("Please select or type something.")
@@ -41,6 +46,7 @@ const Form = () => {
         return (
         <div className="form">
             <h1>BOOKSY</h1>
+            <BookCatSearch passBookCategoryData={searchBarInput}/>
             {/* <Searchbar passSearchData={searchBarInput}/> */}
             {/* <h1>{searchInput}</h1> */}
             <Select passSelectData={selectInput}/>
