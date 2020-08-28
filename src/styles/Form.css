@@ -1,3 +1,19 @@
 .form{
     text-align: center;
+    margin-bottom:0;
+}
+
+.select{
+    margin-top: 2rem;
+}
+
+body{
+    background-image: url("https://image.freepik.com/free-vector/gradient-violet-blue-abstract-background_23-2148462325.jpg");
+    background-size: cover;
+}
+
+.title{
+    color: white;
+    font-size: 5rem;
+    margin-bottom: 0;
 }

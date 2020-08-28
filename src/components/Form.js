@@ -36,7 +36,7 @@ const Form = () => {
 
        selectedOptions.length > 0 ? newLink += `,${searchInput}` : newLink += searchInput;
 
-        if(selectedOptions.length != 0){
+        if(selectedOptions.length != 0 || searchInput != ""){
             history.replace(newLink);
         }else{
             alert("Please select or type something.")
@@ -45,12 +45,10 @@ const Form = () => {
 
         return (
         <div className="form">
-            <h1>BOOKSY</h1>
-            <BookCatSearch passBookCategoryData={searchBarInput}/>
-            {/* <Searchbar passSearchData={searchBarInput}/> */}
-            {/* <h1>{searchInput}</h1> */}
-            <Select passSelectData={selectInput}/>
-            <Button variant="contained" color="primary" onClick={loadBooks} disabled={selectedOptions.length == 0}>
+            <h1 className="title">BOOKSY</h1>
+            <BookCatSearch passBookCategoryData={searchBarInput} />
+            <Select passSelectData={selectInput} className="select"/>
+            <Button variant="contained" color="primary" onClick={loadBooks} disabled={selectedOptions.length == 0 && searchInput.length == 0}>
             Search
             </Button>
         </div>

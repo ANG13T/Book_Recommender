@@ -5,6 +5,21 @@ import { makeStyles } from '@material-ui/core/styles';
 import Checkbox from '@material-ui/core/Checkbox';
 import '../../styles/Select.css';
 
+// ICONS
+import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+import AccountBalanceIcon from '@material-ui/icons/AccountBalance';
+import ClassIcon from '@material-ui/icons/Class';
+import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
+import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
+import SchoolIcon from '@material-ui/icons/School';
+import NightsStayIcon from '@material-ui/icons/NightsStay';
+import LooksIcon from '@material-ui/icons/Looks';
+import LocalLibraryIcon from '@material-ui/icons/LocalLibrary';
+import EcoIcon from '@material-ui/icons/Eco';
+import LocalPlayIcon from '@material-ui/icons/LocalPlay';
+// import DeleteSharpIcon from '@material-ui/icons/DeleteSharp';
+
+
 const useStyles = makeStyles((theme) => ({
     root: {
       '& > svg': {
@@ -57,7 +72,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="fiction"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <NightsStayIcon color="primary" className="icon"/>
                     <h2 className="logoName">Fiction</h2>
             </Paper>
 
@@ -67,7 +82,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="nonfiction"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <LocalLibraryIcon color="primary" className="icon"/>
                     <h2 className="logoName">NonFiction</h2>
             </Paper>
 
@@ -77,7 +92,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="fantasy"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <LooksIcon color="primary" className="icon"/>
                     <h2 className="logoName">Fantasy</h2>
             </Paper>
 
@@ -87,7 +102,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="textbooks"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <SchoolIcon color="primary" className="icon"/>
                     <h2 className="logoName">Textbooks</h2>
             </Paper>
 
@@ -97,7 +112,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="drama"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <LocalPlayIcon color="primary" className="icon"/>
                     <h2 className="logoName">Drama</h2>
             </Paper>
             <Paper elevation={3} className="option" >
@@ -106,7 +121,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="Learning"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <ClassIcon color="primary" className="icon"/>
                     <h2 className="logoName">Learning</h2>
             </Paper>
             <Paper elevation={3} className="option" >
@@ -115,7 +130,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="biography"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <EmojiPeopleIcon color="primary" className="icon"/>
                     <h2 className="logoName">Biography</h2>
             </Paper>
 
@@ -125,7 +140,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="selfhelp"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <SentimentVerySatisfiedIcon color="primary" className="icon"/>
                     <h2 className="logoName">Self Help</h2>
             </Paper>
 
@@ -135,7 +150,7 @@ class Select extends React.Component {
                     className="check"
                     onChange={ this.handleChange }
                     id="history"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <AccountBalanceIcon color="primary" className="icon"/>
                     <h2 className="logoName">History</h2>
             </Paper>
 
@@ -145,7 +160,7 @@ class Select extends React.Component {
                     onChange={ this.handleChange }
                     className="check"
                     id="scifi"/>
-                    <HomeIcon color="primary" className="icon"/>
+                    <EcoIcon color="primary" className="icon"/>
                     <h2 className="logoName">Science Fiction</h2>
             </Paper>
 
